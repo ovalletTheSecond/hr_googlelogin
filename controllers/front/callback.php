@@ -210,7 +210,7 @@ class Hr_googleloginCallbackModuleFrontController extends ModuleFrontController
         $customer->firstname  = $firstName;
         $customer->lastname   = $lastName;
         $customer->email      = $email;
-        $customer->passwd     = Tools::encrypt($this->generateSecurePassword());
+        $customer->passwd     = Tools::hash($this->generateSecurePassword());
         $customer->is_guest   = 0;
         $customer->active     = 1;
         $customer->id_default_group = (int) Configuration::get('PS_CUSTOMER_GROUP');
